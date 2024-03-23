@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
-@Tag(name = "Authorization Api list", description = "Api list for Authorization")
+@Tag(name = "Region Api list", description = "Api list for Region")
 @RestController
 @RequestMapping("/region/api")
 public class RegionController {

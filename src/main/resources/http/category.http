@@ -1,39 +1,39 @@
 ### Create
-POST http://localhost:8080/region/api/create
+POST http://localhost:8080/category/api/create
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
 Accept-Language: UZ
 Content-Type:  application/json
 
 {
-  "orderNumber": "3",
-  "nameUz": "Uz3",
-  "nameRu": "Ru3",
-  "nameEn": "En3"
+  "orderNumber": "1",
+  "nameUz": "Uz1",
+  "nameRu": "Ru1",
+  "nameEn": "En1"
 }
 
 ### Update by id
-PUT http://localhost:8080/region/api/update/7
+PUT http://localhost:8080/category/api/update/1
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
 Accept-Language: UZ
 Content-Type:  application/json
 
 {
-  "orderNumber": "7",
-  "nameUz": "Uzbek3",
-  "nameRu": "Ru3",
-  "nameEn": "En3"
+  "orderNumber": "1",
+  "nameUz": "Uzbek1",
+  "nameRu": "Ru1",
+  "nameEn": "En1"
 }
 
 ### Delete by id
-DELETE http://localhost:8080/region/api/delete/8
+DELETE http://localhost:8080/category/api/delete/2
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
 Accept-Language: UZ
 
 ### Get List
-GET http://localhost:8080/region/api/get-list
+GET http://localhost:8080/category/api/get-list
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
 
-### Get By language
-GET http://localhost:8080/region/api/get-by-language
+### Get By Language
+GET http://localhost:8080/category/api/get-by-language
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
 Accept-Language: UZ
