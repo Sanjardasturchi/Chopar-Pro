@@ -8,6 +8,7 @@ import com.example.service.AuthService;
 import com.example.service.ProductService;
 import com.example.service.ProfileService;
 import com.example.service.ResourceBundleService;
+import com.example.utils.JWTUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -36,6 +37,7 @@ public class AuthWebController {
         if (profile == null) {
             throw new AppBadException(resourceBundleService.getMessage("profile.not.found",language));
         }
+        profile.setJwt(JWTUtil.encodeForSpringSecurity(profile.getEmail(), profile.getRole()));
         return ResponseEntity.ok(profile);
     }
 }
