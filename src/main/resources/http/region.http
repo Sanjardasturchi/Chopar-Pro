@@ -11,3 +11,29 @@ Content-Type:  application/json
   "nameEn": "En3"
 }
 
+### Update by id
+PUT http://localhost:8080/region/api/update/7
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: UZ
+Content-Type:  application/json
+
+{
+  "orderNumber": "7",
+  "nameUz": "Uzbek3",
+  "nameRu": "Ru3",
+  "nameEn": "En3"
+}
+
+### Update by id
+DELETE http://localhost:8080/region/api/delete/8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: UZ
+
+### Get List
+GET http://localhost:8080/region/api/get-list
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+
+### Get List
+GET http://localhost:8080/region/api/get-by-language
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: UZ
