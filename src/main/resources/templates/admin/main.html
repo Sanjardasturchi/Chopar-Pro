@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <link rel="stylesheet" th:href="@{/css/admin/main.css}">
+</head>
+<body>
+<h1>Salom admin</h1>
+<form th:action="@{/profile/go-to-create}" method="POST">
+    <button type="submit" class="button">Create</button>
+</form>
+<form th:action="." method="POST">
+    <button type="submit" class="button">Update</button>
+</form>
+<form th:action="." method="POST">
+    <button type="submit" class="button">Yangi profil yaratish</button>
+</form>
+<form th:action="." method="POST">
+    <button type="submit" class="button">Yangi profil yaratish</button>
+</form>
+
+</body>
+</html>
+

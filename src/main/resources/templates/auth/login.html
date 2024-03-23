@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Login - Shopme Admin</title>
+    <link rel="stylesheet"  th:href="@{/css/auth/login.css} "/>
+<!--    <script type="text/javascript" th:src="@{/js/main.js}"></script>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous"/>
+</head>
+<body>
+
+<a href="http://localhost:8080/registration/go-to-add"><button>Register</button></a>
+
+<form th:action="@{/auth/login}" method="POST" th:object="${auth}">
+    <div class="container-fluid text-center">
+
+        <form th:action="@{/auth/login}"  method="POST" style="max-width: 350px; margin: 0 auto;">
+
+            <div th:if="${error}">
+                <p class="text-danger">Profile not found</p>
+            </div>
+            <div th:if="${invalid}">
+                <p class="text-danger">Invalid password entered</p>
+            </div>
+
+            <div th:if="${logout}">
+                <p class="text-warning">You have been logged out.</p>
+            </div>
+
+            <div class="border border-secondary p-3 rounded" style="width: 60%; margin-right: auto; margin-left: auto">
+                <p>Chopar Pro</p>
+                <p>
+                    <input type="email" th:field="${auth.email}" id="email" name="email" class="form-control" placeholder="E-mail" required autofocus/>
+                </p>
+                <p>
+                    <input type="password" th:field="${auth.password}" name="password" class="form-control" placeholder="Password" required/>
+                </p>
+
+                <p>
+                    <input type="submit" value="Login" class="btn btn-primary"/>
+                </p>
+            </div>
+        </form>
+    </div>
+</form>
+</body>
+</html>

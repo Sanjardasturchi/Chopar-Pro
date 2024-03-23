@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Profile</title>
+    <link rel="stylesheet" th:href="@{/css/admin/profile/create.css} "/>
+<!--    <script type="text/javascript" th:src="@{/js/main.js}"></script>-->
+</head>
+<body>
+<div class="container">
+    <a th:action="@{/admin/main}"><button>main</button></a>
+
+    <div class="wrapper">
+        <form th:object="profile" th:action="@{/profile/save}" method="POST">
+            <h2>Yangi profil qo'shish</h2>
+
+            <label for="name">Ism</label>
+            <input type="text" th:field="*{profile.name}" id="name" name="name" placeholder="Ism">
+
+            <label for="email">Email</label>
+            <input type="text" th:field="*{profile.email}" id="email" email="email" placeholder="Email">
+
+            <label for="password">Parol</label>
+            <input type="password" th:field="*{profile.password}" id="password" password="password" placeholder="Parol">
+
+            <label for="birthDate">Tug'ilgan kun</label>
+            <input type="date" th:field="*{profile.birthDate}" id="birthDate" name="birthDate" placeholder="Tug'ilgan kun">
+
+            <button type="submit" class="button">Saqlash</button>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

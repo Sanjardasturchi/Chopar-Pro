@@ -1,0 +1,9 @@
+### Registration
+POST localhost:8080/auth/api/login
+Accept-Language: UZ
+Content-Type: application/json
+
+{
+  "email": "sanjarbeksultanov2023@gmail.com",
+  "password": "1"
+}

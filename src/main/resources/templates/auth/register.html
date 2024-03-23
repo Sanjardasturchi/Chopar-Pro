@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Title</title>
+  <link rel="stylesheet"  th:href="@{/css/auth/register.css} "/>
+
+</head>
+<body>
+<h1 style="text-align: center">Registration</h1>
+<br>
+
+  <a href="/auth/go-to-loginPage"><button>Login</button></a>
+<div class="wrapper">
+
+  <!--  <form th:action="@{/student/save}" method="POST" th:object="${student}">-->
+  <form th:action="@{/registration/register}" method="POST" th:object="${registeration}">
+    <h2> <th:block th:text="${info}"></th:block> </h2>
+    <label for="isim">Ism</label>
+    <input type="text" th:field="${registeration.name}" id="isim" name="isim" placeholder="Ismingiz">
+
+    <label for="email">Email</label>
+    <input type="email" th:field="${registeration.email}" id="email" name="email" placeholder="Email">
+
+    <label for="password">Parol</label>
+    <input type="password" th:field="${registeration.password}" id="password" name="password" placeholder="Password">
+
+    <label for="birthDate">Tug'ilgan kun</label>
+    <input type="date" th:field="${registeration.birthDate}" id="birthDate" name="password" >
+
+    <p>
+    <input type="submit" value="Save" class="btn btn-primary"/>
+    </p>
+  </form>
+</div>
+</body>
+</html>
