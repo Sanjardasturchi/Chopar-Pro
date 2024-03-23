@@ -1,6 +1,6 @@
 ### Registration
 POST localhost:8080/registration/api/register
-Accept-Language: UZ
+Accept-Language: EN
 Content-Type: application/json
 
 {

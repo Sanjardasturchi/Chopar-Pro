@@ -1,0 +1,13 @@
+### Create
+POST http://localhost:8080/region/api/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: UZ
+Content-Type:  application/json
+
+{
+  "orderNumber": "3",
+  "nameUz": "Uz3",
+  "nameRu": "Ru3",
+  "nameEn": "En3"
+}
+

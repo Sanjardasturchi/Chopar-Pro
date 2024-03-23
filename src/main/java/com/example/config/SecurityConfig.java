@@ -11,70 +11,70 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 public class SecurityConfig {
     @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
+    private JWTTokenFilter jwtTokenFilter;
     public static String[] AUTH_WHITELIST = {
             "/auth/*",
             "/registration/*",
             "/registration/api/register",
             "/profile/go-to-create",
             "/registration/verification/email/*",
-            "/auth/api/login"
+            "/auth/api/login",
+            "/email-history/api/get-history-by-email/{email}",
+            "/email-history/api/get-history-by-given-date/{date}"
+          //  "/email-history/api/get-history-by-pagination"
     };
     @Bean
     public AuthenticationProvider authenticationProvider() {
-        // authentication
-/*//        String password = UUID.randomUUID().toString();
-        System.out.println("User Pasword mazgi: 123456");
-
-        UserDetails user = User.builder()
-                .username("user")
-                .password("{noop}" + "123456")
-                .roles("USER")
-                .build();
-
-        final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(new InMemoryUserDetailsManager(user));
-        return authenticationProvider;
-    */
-
-        // authentication (login,password)
         final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailsService);
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
     }
-
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // authorization
-        http.authorizeHttpRequests()
+        http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
                 .requestMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin(httpSecurityFormLoginConfigurer ->
-                        httpSecurityFormLoginConfigurer
-                                .loginPage("/auth/go-to-loginPage")
-                                .loginPage("/registration/go-to-add")
-                                .loginProcessingUrl("/loginProcessUrl").permitAll()
-//                                .defaultSuccessUrl()
-                                .failureUrl("/auth/go-to-loginPage?error=true")
-
-                ).logout(httpSecurityLogoutConfigurer ->
-                        httpSecurityLogoutConfigurer
-                                .logoutUrl("/auth/go-to-loginPageWithLogout")
-                                .logoutSuccessUrl("/greating")
-                );
+                .authenticated());
+        http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
         http.csrf(AbstractHttpConfigurer::disable);
         http.cors(AbstractHttpConfigurer::disable);
-
         return http.build();
     }
+
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        // authorization
+//        http.authorizeHttpRequests()
+//                .requestMatchers(AUTH_WHITELIST).permitAll()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .formLogin(httpSecurityFormLoginConfigurer ->
+//                        httpSecurityFormLoginConfigurer
+//                                .loginPage("/auth/go-to-loginPage")
+//                                .loginPage("/registration/go-to-add")
+//                                .loginProcessingUrl("/loginProcessUrl").permitAll()
+////                                .defaultSuccessUrl()
+//                                .failureUrl("/auth/go-to-loginPage?error=true")
+//
+//                ).logout(httpSecurityLogoutConfigurer ->
+//                        httpSecurityLogoutConfigurer
+//                                .logoutUrl("/auth/go-to-loginPageWithLogout")
+//                                .logoutSuccessUrl("/greating")
+//                );
+//        http.csrf(AbstractHttpConfigurer::disable);
+//        http.cors(AbstractHttpConfigurer::disable);
+//
+//        return http.build();
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

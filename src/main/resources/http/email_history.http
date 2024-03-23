@@ -1,0 +1,11 @@
+### Get by email
+GET localhost:8080/email-history/api/get-history-by-email/sanjarbeksultanov2023@gmail.com
+
+
+### Get by email
+GET localhost:8080/email-history/api/get-history-by-given-date/2024-03-23
+
+
+### Get by email
+GET localhost:8080/email-history/api/get-history-by-pagination?page=2&size=10
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA

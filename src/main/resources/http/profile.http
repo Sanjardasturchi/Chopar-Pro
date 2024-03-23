@@ -1,0 +1,45 @@
+### Register by admin
+POST localhost:8080/registration/api/register-by-admin
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: EN
+Content-Type: application/json
+
+{
+  "name": "Sanjar",
+  "email": "sanjarbeksultanov2023@gmail.com",
+  "password": "1",
+  "birthDate": "2003-07-27",
+  "status": "ACTIVE"
+}
+
+### Update
+PUT localhost:8080/profile/api/update/193f7377-4a23-4b82-881a-f738d915026d
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: EN
+Content-Type: application/json
+
+{
+  "name": "Sanjarbek",
+  "status": "ACTIVE"
+}
+
+### Update own detail
+PUT localhost:8080/profile/api/update-own-detail
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: EN
+Content-Type: application/json
+
+{
+  "name": "Sanjarbek",
+  "status": "ACTIVE"
+}
+
+### Get by pagination
+GET localhost:8080/profile/api/get-by-pagination
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: EN
+
+### Delete by id
+DELETE localhost:8080/profile/api/delete/faddc92c-2397-4419-af7a-63f147d76984
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDU3MTMsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExMjkyMTEzLCJpc3MiOiJDaG9wYXJQcm8ifQ.KYMojeXbG-n6MjA2KWGXSudPl0UE6XbnJRT_gHUJtv6YD0JuAaIn8SPSyseCTHDtNkMx_2sPxdl1MoD2rIITEA
+Accept-Language: EN

@@ -1,14 +1,13 @@
 package com.example.service;
 
 import com.example.dto.EmailHistoryDTO;
-import com.example.dto.extra.CreateProfileByAdminDTO;
+import com.example.dto.extra.profile.CreateProfileByAdminDTO;
 import com.example.dto.extra.RegistrationByEmailDTO;
 import com.example.entity.ProfileEntity;
 import com.example.enums.Language;
 import com.example.enums.ProfileRole;
 import com.example.enums.ProfileStatus;
 import com.example.exp.AppBadException;
-import com.example.repository.EmailHistoryRepository;
 import com.example.repository.ProfileRepository;
 import com.example.utils.JWTUtil;
 import com.example.utils.MD5Util;
@@ -31,8 +30,7 @@ public class RegistrationService {
     //=============== Repository ==============
     @Autowired
     private ProfileRepository profileRepository;
-    @Autowired
-    private EmailHistoryRepository emailHistoryRepository;
+
 
     /**
      * This method is used to create profile by admin
@@ -66,20 +64,21 @@ public class RegistrationService {
 
 
     public String register(RegistrationByEmailDTO dto, Language language) {
+        ProfileEntity entity=new ProfileEntity();
         Optional<ProfileEntity> profile = profileRepository.findByEmail(dto.getEmail());
         if (profile.isPresent()) {
-            ProfileEntity entity = profile.get();
-            if (!entity.getStatus().equals(ProfileStatus.REGISTRATION)) {
+            if (!profile.get().getStatus().equals(ProfileStatus.REGISTRATION)) {
                 throw new AppBadException(resourceBundleService.getMessage("profile.already.exist",language));
+            }else {
+                entity.setId(profile.get().getId());
             }
         }
         LocalDateTime from=LocalDateTime.now().minusMinutes(1);
         LocalDateTime to=LocalDateTime.now();
-        if (emailHistoryRepository.countSendEmail(dto.getEmail(), from, to) > 3) {
+        if (emailHistoryService.countSendEmail(dto.getEmail(), from, to) > 3) {
             throw new AppBadException("To many attempt. Please try after 1 minute.");
         }
 
-        ProfileEntity entity=new ProfileEntity();
         entity.setName(dto.getName());
         entity.setPassword(MD5Util.encode(dto.getPassword()));
         entity.setEmail(dto.getEmail());
