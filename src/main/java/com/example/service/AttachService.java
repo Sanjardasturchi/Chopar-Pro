@@ -44,7 +44,7 @@ public class AttachService {
     public AttachDTO save(MultipartFile file) {
         try {
             String pathFolder = getYmDString();
-            File folder = new File("uploads/" + pathFolder);
+            File folder = new File("src/main/resources/static/uploads/" + pathFolder);
             if (!folder.exists()) {
                 folder.mkdirs();
             }
@@ -52,11 +52,11 @@ public class AttachService {
             String extension = getExtension(file.getOriginalFilename());
 
             byte[] bytes = file.getBytes();
-            Path path = Paths.get("uploads/" + pathFolder + "/" + key + "." + extension);
+            Path path = Paths.get("src/main/resources/static/uploads/" + pathFolder + "/" + key + "." + extension);
 
             Files.write(path, bytes);
 
-            String url=serverUrl+"/attach/open/"+key+"."+extension;
+            String url=serverUrl+"/attach/api/open/"+key+"."+extension;
             long durationInSeconds = getDurationInSeconds(path.toAbsolutePath());
 
             AttachEntity entity = new AttachEntity();
@@ -67,12 +67,10 @@ public class AttachService {
             entity.setId(UUID.fromString(key));
             entity.setPath(pathFolder);
             entity.setDuration(durationInSeconds);
-
-            entity.setUrl(serverUrl + "/attach/open/" + entity.getId() + "." + entity.getExtension());
-
+            entity.setAbsolutePath("uploads/" + pathFolder + "/" + key + "." + extension);
             entity.setUrl(url);
 
-
+            entity.setUrl(serverUrl + "/attach/api/open/" + key + "." + entity.getExtension());
             attachRepository.save(entity);
 
             return toDTO(entity);
@@ -89,8 +87,9 @@ public class AttachService {
     public AttachDTO toDTO(AttachEntity entity) {
         AttachDTO dto = new AttachDTO();
         dto.setId(entity.getId());
-        dto.setUrl(serverUrl + "/attach/open/" + entity.getId() + "." + entity.getExtension());
+        dto.setUrl(serverUrl + "/attach/api/open/" + entity.getId() + "." + entity.getExtension());
         dto.setDuration(entity.getDuration());
+        dto.setAbsolutePath(entity.getAbsolutePath());
         return dto;
     }
 
@@ -147,7 +146,7 @@ public class AttachService {
         AttachEntity entity = get(id, language);
         byte[] data;
         try {
-            Path file = Paths.get("uploads/" + entity.getPath() + "/" + attachId);
+            Path file = Paths.get("C:/Projects/Chopar_Pro/src/main/resources/static/uploads/" + entity.getPath() + "/" + attachId);
             data = Files.readAllBytes(file);
             return data;
         } catch (IOException e) {

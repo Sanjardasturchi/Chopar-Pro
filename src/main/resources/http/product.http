@@ -1,0 +1,18 @@
+### Create
+POST http://localhost:8080/product/api/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Accept-Language: UZ
+Content-Type: application/json
+
+{
+  "nameUz": "nameUz3",
+  "nameRu": "nameRu3",
+  "nameEn": "nameEn3",
+  "descriptionUz": "descriptionUz3",
+  "descriptionRu": "descriptionRu3",
+  "descriptionEn": "descriptionEn3",
+  "orderNumber": 3,
+  "categoryId": 3,
+  "price": 20990,
+  "attachList": ["a79c752d-8c78-458b-9076-fa1419b603b9"]
+}

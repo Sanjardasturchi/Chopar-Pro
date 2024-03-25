@@ -29,7 +29,9 @@ public class SecurityConfig {
             "/email-history/api/get-history-by-email/{email}",
             "/email-history/api/get-history-by-given-date/{date}",
             "/attach/api/upload",
-            "/attach/open/*"
+            "/attach/open/*",
+            "/attach/api/open/*",
+            "/src/resources/static/uploads/**"
           //  "/email-history/api/get-history-by-pagination"
     };
     @Bean

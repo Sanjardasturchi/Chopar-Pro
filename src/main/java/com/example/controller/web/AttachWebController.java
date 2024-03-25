@@ -11,6 +11,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Tag(name = "Attach Api list", description = "Api list for Attach")
 @RestController
 @RequestMapping("/attach/api")
-public class AttachController {
+public class AttachWebController {
     @Autowired
     private AttachService attachService;
 
@@ -67,7 +68,7 @@ public class AttachController {
      * This method is used by the Admin to pagination the attachment
      **/
     @GetMapping("/attachPagination")
-//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Api for pagination", description = "this api is used to pagination attach")
     public ResponseEntity<PageImpl<AttachDTO>> pagination(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                                           @RequestParam(value = "size", defaultValue = "2") Integer size) {
@@ -79,7 +80,7 @@ public class AttachController {
      * This method is used by the admin to delete the attach by id
      */
     @DeleteMapping("/delete/{id}")
-//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Api for delete", description = "this api is used to delete attach")
     public ResponseEntity<Boolean> delete(@PathVariable("id") String id,
                                           @RequestParam(value = "Accept-Language", defaultValue = "UZ") Language language) {

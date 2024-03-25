@@ -18,7 +18,7 @@ import java.util.List;
 @Tag(name = "Category Api list", description = "Api list for Category")
 @RestController
 @RequestMapping("/category/api")
-public class CategoryController {
+public class CategoryWebController {
     @Autowired
     private CategoryService categoryService;
 

@@ -19,7 +19,7 @@ import java.util.List;
 @Tag(name = "Email history Api list", description = "Api list for email history")
 @RestController
 @RequestMapping("/email-history/api")
-public class EmailHistoryController {
+public class EmailHistoryWebController {
     @Autowired
     private EmailHistoryService emailHistoryService;
 

@@ -19,7 +19,7 @@ import java.util.List;
 @Tag(name = "Region Api list", description = "Api list for Region")
 @RestController
 @RequestMapping("/region/api")
-public class RegionController {
+public class RegionWebController {
     @Autowired
     private RegionService regionService;
 
