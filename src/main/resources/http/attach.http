@@ -1,0 +1,9 @@
+### Create
+POST http://localhost:8080/attach/api/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="img.png"
+
+
+< C:\Projects\Chopar_Pro\images\img.png

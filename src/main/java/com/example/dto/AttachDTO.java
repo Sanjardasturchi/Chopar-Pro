@@ -11,8 +11,9 @@ public class AttachDTO {
     private UUID id;
     private String originalName;
     private String path;
-    private Double size;
+    private Long size;
     private String extension;
     private LocalDateTime createdDate;
     private String url;
+    private Long duration;
 }
