@@ -12,6 +12,8 @@ import java.util.UUID;
 @Entity
 @Table(name = "product")
 public class ProductEntity extends BaseEntity{
+    @Column(name = "order_number")
+    private Integer orderNumber;
     @Column(name = "name_uz")
     private String nameUz;
     @Column(name = "name_ru")

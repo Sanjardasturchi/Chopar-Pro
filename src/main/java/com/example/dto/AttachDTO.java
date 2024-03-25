@@ -16,4 +16,5 @@ public class AttachDTO {
     private LocalDateTime createdDate;
     private String url;
     private Long duration;
+    private String absolutePath;
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 @Setter
 @Getter
@@ -24,4 +25,5 @@ public class ProductDTO {
     private Double discountPrice;
     private Integer viewCount;
     private Integer categoryId;
+    private List<AttachDTO> attachList;
 }
