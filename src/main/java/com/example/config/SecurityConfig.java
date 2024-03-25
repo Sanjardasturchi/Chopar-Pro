@@ -27,7 +27,9 @@ public class SecurityConfig {
             "/registration/verification/email/*",
             "/auth/api/login",
             "/email-history/api/get-history-by-email/{email}",
-            "/email-history/api/get-history-by-given-date/{date}"
+            "/email-history/api/get-history-by-given-date/{date}",
+            "/attach/api/upload",
+            "/attach/open/*"
           //  "/email-history/api/get-history-by-pagination"
     };
     @Bean

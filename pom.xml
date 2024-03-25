@@ -83,6 +83,11 @@
             <artifactId>jjwt</artifactId>
             <version>0.12.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv-platform</artifactId>
+            <version>1.5.5</version> <!-- Versiyani o'zgartiring -->
+        </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -15,9 +15,11 @@ public class AttachEntity extends BaseEntityWithUUID{
     @Column(name = "path")
     private String path;
     @Column(name = "size")
-    private Double size;
+    private Long size;
     @Column(name = "extension")
     private String extension;
     @Column(name = "url")
     private String url;
+    @Column(name = "duration")
+    private Long duration;
 }
