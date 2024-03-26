@@ -33,7 +33,7 @@ public class ProductEntity extends BaseEntity{
     @Column(name = "prt_id")
     private UUID prtId;
     @Column(name = "view_count")
-    private Integer viewCount;
+    private Integer viewCount=0;
     @Column(name = "category_id")
     private Integer categoryId;
 }

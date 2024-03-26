@@ -1,17 +1,20 @@
 package com.example.controller.web;
 
+import com.example.dto.ProductDTO;
 import com.example.dto.extra.ProductCreateDTO;
+import com.example.enums.Language;
 import com.example.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @Tag(name = "Product Api list", description = "Api list for product")
@@ -29,23 +32,60 @@ public class ProductWebController {
         return "DONE";
     }
 
+    @PutMapping("/update/{id}")
+    @Operation(summary = "Api for update", description = "this api used for update product by admin")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String update(@PathVariable("id") Integer id,
+                         @Valid @RequestBody ProductCreateDTO productDTO,
+                         @RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
+        return productService.update(id, productDTO,language);
+    }
 
+    @DeleteMapping("/delete/{id}")
+    @Operation(summary = "Api for delete", description = "this api used for delete product by admin")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public String delete(@PathVariable("id") Integer id,
+                         @RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
+        return productService.delete(id,language);
+    }
 
-//8. product
-//    id,order_number,name_uz, name_ru, name_en,visible,created_date, description_uz, description_ru, description_en,
-//  	price, category_id
-//  / 1. create product (order_number,name_uz, name_ru, name_en, description_uz.ru.en, price, attachlist[image_id,image_id], category_id)
-//       admin page(https://demo.templatemonster.com/demo/172401.html?_gl=1*t9frl*_ga*NTkzNDY4MDc0LjE2OTY3NTg0NDQ.*_ga_FTPYEGT5LY*MTY5Njc1ODQ0NC4xLjEuMTY5Njc1ODQ1OC40Ni4wLjA.&_ga=2.142290298.974307283.1696758445-593468074.1696758444)
-//    2. update  (order_number,name_uz, name_ru, name_en, description_uz.ru.en, price, attachlist[image_id,image_id], category_id)
-//    3. delete(visible=false)
-//    4. get pagination by categoryId and language
-//		(id,name,description,price,mainImage,)
-//    5. get last 10 added productList
-//		(id,name,description,price,mainImage,)
-//	6. gat top selled 10 products
-//		(id,name,description,price,mainImage,)
-//	9. Get by Id as client
-//		(id,name,description,price,attachList,)
-//	10. Get by Id as admin
-//		(id, name_uz, name_ru, name_en,visible,created_date, description_uz, description_ru, description_en, price, category_id,  attachlist[])
+    @GetMapping("/getByPaginationByCategoryId")
+    @Operation(summary = "Api for get", description = "this api used for get By Pagination By Category Id")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+    public ResponseEntity<PageImpl<ProductDTO>> getByPaginationByCategoryId(@RequestParam("categoryId") Integer categoryId,
+                                                                            @RequestParam(value = "page",defaultValue = "1") Integer page,
+                                                                            @RequestParam(value = "size",defaultValue = "10") Integer size,
+                                                                            @RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
+        return ResponseEntity.ok(productService.getByPaginationByCategoryId(categoryId,language,page,size));
+    }
+
+    @GetMapping("/getLastTenAddedProducts")
+    @Operation(summary = "Api for get", description = "this api used for get Last 10 added products")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+    public ResponseEntity<List<ProductDTO>> getLastTenAddedProducts(@RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
+        return ResponseEntity.ok(productService.getLastTenAddedProducts(language));
+    }
+
+    @GetMapping("/getTopTenSoldProducts")
+    @Operation(summary = "Api for get", description = "this api used for get top 10 sold products")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+    public ResponseEntity<List<ProductDTO>> getTopTenSoldProducts(@RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
+        return ResponseEntity.ok(productService.getTopTenSoldProducts(language));
+    }
+
+    @GetMapping("/getByIdForClient/{id}")
+    @Operation(summary = "Api for get", description = "this api used for get by for client")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+    public ResponseEntity<ProductDTO> getByIdForClient(@PathVariable("id")Integer id,
+            @RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
+        return ResponseEntity.ok(productService.getByIdForClient(id,language));
+    }
+
+    @GetMapping("/getByIdForAdmin/{id}")
+    @Operation(summary = "Api for get", description = "this api used for get by for admin")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+    public ResponseEntity<ProductDTO> getByIdForAdmin(@PathVariable("id")Integer id,
+                                                       @RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
+        return ResponseEntity.ok(productService.getByIdForAdmin(id,language));
+    }
 }
