@@ -13,7 +13,7 @@ import java.util.UUID;
 @Table(name = "order_bucket")
 public class OrderBucketEntity extends BaseEntity{
     @Column(name = "product_id")
-    private UUID productId;
+    private Integer productId;
     @Column(name = "order_id")
     private Integer orderId;
     @Column(name = "amount")

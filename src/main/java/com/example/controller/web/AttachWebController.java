@@ -75,7 +75,6 @@ public class AttachWebController {
         return ResponseEntity.ok(attachService.getAttachPagination(page, size));
     }
 
-
     /**
      * This method is used by the admin to delete the attach by id
      */
@@ -86,12 +85,4 @@ public class AttachWebController {
                                           @RequestParam(value = "Accept-Language", defaultValue = "UZ") Language language) {
         return ResponseEntity.ok(attachService.delete(id, language));
     }
-
-    //5. Attach
-    //    1. Upload  (ANY)
-    //    2. Open (by id)
-    //    3. Open general (by id)
-    //    4. Download (by id  with origin name)
-    //    5. Pagination (ADMIN)
-    //    6. Delete by id (delete from system and table) (ADMIN)
 }

@@ -5,7 +5,7 @@ Accept-Language: UZ
 Content-Type: application/json
 
 {
-  "nameUz": "nameUz3",
+  "nameUz": "Salom3",
   "nameRu": "nameRu3",
   "nameEn": "nameEn3",
   "descriptionUz": "descriptionUz3",
@@ -16,3 +16,52 @@ Content-Type: application/json
   "price": 20990,
   "attachList": ["a79c752d-8c78-458b-9076-fa1419b603b9"]
 }
+
+### Update
+PUT http://localhost:8080/product/api/update/9
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Accept-Language: UZ
+Content-Type: application/json
+
+{
+  "nameUz": "Alik3",
+  "nameRu": "nameRu3",
+  "nameEn": "nameEn3",
+  "descriptionUz": "descriptionUz3",
+  "descriptionRu": "descriptionRu3",
+  "descriptionEn": "descriptionEn3",
+  "orderNumber": 3,
+  "categoryId": 3,
+  "price": 20990,
+  "attachList": ["a79c752d-8c78-458b-9076-fa1419b603b9"]
+}
+
+### Delete
+DELETE http://localhost:8080/product/api/delete/8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Accept-Language: UZ
+
+### Get by pagination by category id
+GET http://localhost:8080/product/api/getByPaginationByCategoryId?categoryId=3&page=1&size=2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Accept-Language: UZ
+
+### Get Last Ten Added Products
+GET http://localhost:8080/product/api/getLastTenAddedProducts
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Accept-Language: UZ
+
+### Get Top Ten Added Products
+GET http://localhost:8080/product/api/getTopTenSoldProducts
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Accept-Language: UZ
+
+### Get Top Ten Added Products
+GET http://localhost:8080/product/api/getByIdForClient/8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Accept-Language: UZ
+
+### Get Top Ten Added Products
+GET http://localhost:8080/product/api/getByIdForAdmin/8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Accept-Language: UZ
