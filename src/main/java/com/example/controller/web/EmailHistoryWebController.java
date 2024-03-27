@@ -20,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/email-history/api")
 public class EmailHistoryWebController {
+    //=============== Service =================
     @Autowired
     private EmailHistoryService emailHistoryService;
 

@@ -14,8 +14,11 @@ import java.util.Optional;
 
 @Service
 public class AuthService {
+    //=============== Repository ==============
     @Autowired
     private ProfileRepository profileRepository;
+
+
     public String check(AuthDTO auth, Language language) {
         Optional<ProfileEntity> profile = profileRepository.findByEmail(auth.getEmail());
         if (profile.isEmpty()||!profile.get().getStatus().equals(ProfileStatus.ACTIVE)) {

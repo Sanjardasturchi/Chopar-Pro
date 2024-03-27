@@ -24,10 +24,12 @@ import java.util.UUID;
 
 @Service
 public class ProductService {
+    //=============== Service =================
     @Autowired
     private AttachService attachService;
     @Autowired
     private ResourceBundleService resourceBundleService;
+    //=============== Repository ==============
     @Autowired
     private ProductRepository productRepository;
     @Autowired
@@ -73,7 +75,7 @@ public class ProductService {
                 dto.setName(entity.getNameEn());
             }
         }
-        List<AttachDTO> attachDTOList=new LinkedList<>();
+        List<AttachDTO> attachDTOList = new LinkedList<>();
         for (ProductAttachEntity productAttach : productAttachRepository.findByProductId(entity.getId())) {
             AttachEntity attachEntity = attachService.get(productAttach.getAttachId().toString(), language);
             AttachDTO attachDTO = attachService.toDTO(attachEntity);
@@ -84,7 +86,7 @@ public class ProductService {
     }
 
     public void create(ProductCreateDTO dto) {
-        ProductEntity entity=new ProductEntity();
+        ProductEntity entity = new ProductEntity();
         entity.setOrderNumber(dto.getOrderNumber());
         entity.setPrice(dto.getPrice());
         entity.setCategoryId(dto.getCategoryId());
@@ -100,7 +102,7 @@ public class ProductService {
         productRepository.save(entity);
         for (String attachId : dto.getAttachList()) {
             if (attachRepository.findById(UUID.fromString(attachId)).isPresent()) {
-                ProductAttachEntity productAttach=new ProductAttachEntity();
+                ProductAttachEntity productAttach = new ProductAttachEntity();
                 productAttach.setAttachId(UUID.fromString(attachId));
                 productAttach.setProductId(entity.getId());
                 productAttach.setVisible(true);
@@ -111,15 +113,16 @@ public class ProductService {
     }
 
     public ProductDTO getById(Integer id) {
-        return null;
+        Optional<ProductEntity> optional = productRepository.findById(id);
+        return optional.map(productEntity -> toDTO(productEntity, Language.UZ)).orElse(null);
     }
 
-    public String update(Integer id, ProductCreateDTO dto,Language language) {
+    public String update(Integer id, ProductCreateDTO dto, Language language) {
         Optional<ProductEntity> optional = productRepository.findById(id);
         if (optional.isEmpty()) {
-            return resourceBundleService.getMessage("profile.not.found",language);
+            return resourceBundleService.getMessage("profile.not.found", language);
         }
-        ProductEntity entity=optional.get();
+        ProductEntity entity = optional.get();
         entity.setOrderNumber(dto.getOrderNumber());
         entity.setPrice(dto.getPrice());
         entity.setCategoryId(dto.getCategoryId());
@@ -136,7 +139,7 @@ public class ProductService {
         productAttachRepository.deleteByProductId(id);
         for (String attachId : dto.getAttachList()) {
             if (attachRepository.findById(UUID.fromString(attachId)).isPresent()) {
-                ProductAttachEntity productAttach=new ProductAttachEntity();
+                ProductAttachEntity productAttach = new ProductAttachEntity();
                 productAttach.setAttachId(UUID.fromString(attachId));
                 productAttach.setProductId(entity.getId());
                 productAttach.setVisible(true);
@@ -149,20 +152,20 @@ public class ProductService {
 
     public String delete(Integer id, Language language) {
         if (productRepository.findById(id).isEmpty()) {
-            return resourceBundleService.getMessage("profile.not.found",language);
+            return resourceBundleService.getMessage("profile.not.found", language);
         }
         productRepository.makeDeletedById(id);
         return "DONE";
     }
 
     public PageImpl<ProductDTO> getByPaginationByCategoryId(Integer categoryId, Language language, Integer page, Integer size) {
-        List<ProductDTO> dtoList=new LinkedList<>();
+        List<ProductDTO> dtoList = new LinkedList<>();
         Sort sort = Sort.by(Sort.Direction.DESC, "createdDate");
         Pageable paging = PageRequest.of(page - 1, size, sort);
-        Page<ProductEntity> entityPage = productRepository.findByCategoryId(categoryId,paging);
+        Page<ProductEntity> entityPage = productRepository.findByCategoryId(categoryId, paging);
         List<ProductEntity> entityList = entityPage.getContent();
         for (ProductEntity entity : entityList) {
-            ProductDTO dto=new ProductDTO();
+            ProductDTO dto = new ProductDTO();
             dto.setId(entity.getId());
             dto.setPrice(entity.getPrice());
             switch (language) {
@@ -179,7 +182,7 @@ public class ProductService {
                     dto.setName(entity.getNameEn());
                 }
             }
-            List<AttachDTO> attachDTOList=new LinkedList<>();
+            List<AttachDTO> attachDTOList = new LinkedList<>();
             for (ProductAttachEntity productAttach : productAttachRepository.findByProductId(entity.getId())) {
                 AttachEntity attachEntity = attachService.get(productAttach.getAttachId().toString(), language);
                 AttachDTO attachDTO = attachService.toDTO(attachEntity);
@@ -189,17 +192,17 @@ public class ProductService {
             dto.setAttachList(attachDTOList);
             dtoList.add(dto);
         }
-        return new PageImpl<>(dtoList,paging,entityPage.getTotalElements());
+        return new PageImpl<>(dtoList, paging, entityPage.getTotalElements());
     }
 
     public List<ProductDTO> getLastTenAddedProducts(Language language) {
-        List<ProductDTO> dtoList=new LinkedList<>();
+        List<ProductDTO> dtoList = new LinkedList<>();
         Sort sort = Sort.by(Sort.Direction.DESC, "createdDate");
         Pageable paging = PageRequest.of(0, 10, sort);
         Page<ProductEntity> entityPage = productRepository.findAll(paging);
         List<ProductEntity> entityList = entityPage.getContent();
         for (ProductEntity entity : entityList) {
-            ProductDTO dto=new ProductDTO();
+            ProductDTO dto = new ProductDTO();
             dto.setId(entity.getId());
             dto.setPrice(entity.getPrice());
             switch (language) {
@@ -216,7 +219,7 @@ public class ProductService {
                     dto.setName(entity.getNameEn());
                 }
             }
-            List<AttachDTO> attachDTOList=new LinkedList<>();
+            List<AttachDTO> attachDTOList = new LinkedList<>();
             for (ProductAttachEntity productAttach : productAttachRepository.findByProductId(entity.getId())) {
                 AttachEntity attachEntity = attachService.get(productAttach.getAttachId().toString(), language);
                 AttachDTO attachDTO = attachService.toDTO(attachEntity);
@@ -233,7 +236,7 @@ public class ProductService {
         Iterable<ProductEntity> entityList = productRepository.getTopTenSoldProducts();
         List<ProductDTO> dtoList = new LinkedList<>();
         for (ProductEntity entity : entityList) {
-            ProductDTO dto=new ProductDTO();
+            ProductDTO dto = new ProductDTO();
             dto.setId(entity.getId());
             dto.setPrice(entity.getPrice());
             switch (language) {
@@ -250,7 +253,7 @@ public class ProductService {
                     dto.setName(entity.getNameEn());
                 }
             }
-            List<AttachDTO> attachDTOList=new LinkedList<>();
+            List<AttachDTO> attachDTOList = new LinkedList<>();
             for (ProductAttachEntity productAttach : productAttachRepository.findByProductId(entity.getId())) {
                 AttachEntity attachEntity = attachService.get(productAttach.getAttachId().toString(), language);
                 AttachDTO attachDTO = attachService.toDTO(attachEntity);
@@ -269,7 +272,7 @@ public class ProductService {
             throw new AppBadException("Product nor found");
         }
         ProductEntity entity = optional.get();
-        ProductDTO dto=new ProductDTO();
+        ProductDTO dto = new ProductDTO();
         dto.setId(entity.getId());
         dto.setPrice(entity.getPrice());
         switch (language) {
@@ -286,7 +289,7 @@ public class ProductService {
                 dto.setName(entity.getNameEn());
             }
         }
-        List<AttachDTO> attachDTOList=new LinkedList<>();
+        List<AttachDTO> attachDTOList = new LinkedList<>();
         for (ProductAttachEntity productAttach : productAttachRepository.findByProductId(entity.getId())) {
             AttachEntity attachEntity = attachService.get(productAttach.getAttachId().toString(), language);
             AttachDTO attachDTO = attachService.toDTO(attachEntity);
@@ -302,7 +305,7 @@ public class ProductService {
             throw new AppBadException("Product nor found");
         }
         ProductEntity entity = optional.get();
-        ProductDTO dto=new ProductDTO();
+        ProductDTO dto = new ProductDTO();
         dto.setId(entity.getId());
         dto.setPrice(entity.getPrice());
         dto.setVisible(entity.getVisible());
@@ -322,7 +325,7 @@ public class ProductService {
                 dto.setName(entity.getNameEn());
             }
         }
-        List<AttachDTO> attachDTOList=new LinkedList<>();
+        List<AttachDTO> attachDTOList = new LinkedList<>();
         for (ProductAttachEntity productAttach : productAttachRepository.findByProductId(entity.getId())) {
             AttachEntity attachEntity = attachService.get(productAttach.getAttachId().toString(), language);
             AttachDTO attachDTO = attachService.toDTO(attachEntity);
