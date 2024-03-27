@@ -1,0 +1,29 @@
+### Create
+POST localhost:8080/order/api/create
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Content-Type: application/json
+Accept-Language: UZ
+
+{
+  "deliveredAddress": "Mirzo Ulugbek",
+  "deliveredContact": "+998996448835",
+  "productList": [
+    {
+      "id": 6,
+      "amount": 6
+    },
+    {
+      "id": 7,
+      "amount": 7
+    },
+    {
+      "id": 8,
+      "amount": 8
+    }
+  ]
+}
+
+
+### Get by id
+GET http://localhost:8080/order/api/get-by-id/12
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE1NjY0MjksImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNjUyODI5LCJpc3MiOiJDaG9wYXJQcm8ifQ.Qb070bq1MiKVpBADz5_MIlyJQWv27yN4n4vOsF-Mec8n8ZLbPQYWjTV856o7iBs-zNjplM5FCH8antKEAA_pcw

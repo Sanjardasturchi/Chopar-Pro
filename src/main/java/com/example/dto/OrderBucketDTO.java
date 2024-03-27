@@ -11,7 +11,7 @@ import java.util.UUID;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderBucketDTO {
     private Integer id;
-    private UUID productId;
+    private Integer productId;
     private Integer orderId;
     private Double amount;
     private Double price;

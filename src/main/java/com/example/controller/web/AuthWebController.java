@@ -22,10 +22,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth/api")
 public class AuthWebController {
+    //=============== Service =================
     @Autowired
     private AuthService authService;
-    @Autowired
-    private ProfileService profileService;
     @Autowired
     private ResourceBundleService resourceBundleService;
 

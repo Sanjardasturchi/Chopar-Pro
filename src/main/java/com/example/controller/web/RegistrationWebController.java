@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/registration/api")
 public class RegistrationWebController {
+    //=============== Service =================
     @Autowired
     private RegistrationService registrationService;
 

@@ -32,9 +32,11 @@ import java.util.UUID;
 @Slf4j
 @Service
 public class AttachService {
+    //=============== Service =================
     @Autowired
     private ResourceBundleService resourceBundleService;
 
+    //=============== Repository ==============
     @Autowired
     private AttachRepository attachRepository;
 
