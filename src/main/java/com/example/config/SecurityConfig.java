@@ -31,6 +31,7 @@ public class SecurityConfig {
             "/attach/api/upload",
             "/attach/open/*",
             "/attach/api/open/*",
+            "/attach/api/download/*",
             "/src/resources/static/uploads/**"
           //  "/email-history/api/get-history-by-pagination"
     };

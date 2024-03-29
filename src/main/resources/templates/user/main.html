@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="/static/css/user/main.css"/>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -23,21 +23,22 @@
 <div class="design-content">
     <div th:each="product, iterStat : ${productList}" class="productInfo">
         <form th:object="${productList}">
-            <div class="design-img" th:each="attach : ${product.attachList}">
-                <img th:src="${attach.url}" th:alt="${attach.originalName}">
-                <span th:text="${product.name}"></span>
+            <div class="design-item">
+                <div class="design-img" th:each="attach : ${product.attachList}">
+                    <img th:src="${attach.url}" th:alt="${attach.originalName}">
+                    <span th:text="${product.name}"></span>
+                </div>
+                <div class="design-title">
+                    <a th:href="@{/product/go-to-info/${product.id}}">
+                        <p th:text="${product.name}"></p>
+                        <p th:text="${product.description}"></p>
+                        <p th:text="${product.categoryId}"></p>
+                        <p th:text="${product.price}"></p>
+                        <p th:text="${product.viewCount}"></p>
+                        <p th:text="${product.createdDate}"></p>
+                    </a>
+                </div>
             </div>
-            <div class="design-title">
-                <a th:href="@{/product/go-to-info/${product.id}}">
-                    <p th:text="${product.name}"></p>
-                    <p th:text="${product.description}"></p>
-                    <p th:text="${product.categoryId}"></p>
-                    <p th:text="${product.price}"></p>
-                    <p th:text="${product.viewCount}"></p>
-                    <p th:text="${product.createdDate}"></p>
-                </a>
-            </div>
-
         </form>
     </div>
 </div>

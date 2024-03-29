@@ -44,18 +44,4 @@ public class EmailHistoryWebController {
                                                                             @RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language){
         return ResponseEntity.ok(emailHistoryService.getByPagination(size,page));
     }
-
-
-
-    //7. EmailHistory
-    //    id, message, email, created_data
-    //    1. Create EmailHistory when email is send using application. (No need create api)
-    //    2. Get EmailHistory by email
-    //            (id, email,message,created_date)
-    //    3. Get EmailHistory  by given date
-    //            (id, email,message,created_date)
-    //    4. Pagination (ADMIN)
-    //            (id, email,message,created_date)
-    //
-    //       (!Should be limit for email sending. For 1 email 3 sms allowed during 1 minut. )
 }

@@ -82,48 +82,18 @@ public class OrderWebController {
     @GetMapping("/get-by-pagination")
     @Operation(summary = "Api for get", description = "this api used for get by pagination")
     @PreAuthorize("hasAnyRole('ROLE_USER')")
-    public ResponseEntity<PageImpl<OrderDTO>> getByPagination(@RequestParam("page") Integer page,
-                                                              @RequestParam("size") Integer size) {
+    public ResponseEntity<PageImpl<OrderDTO>> getByPagination(@RequestParam(value = "page",defaultValue = "1") Integer page,
+                                                              @RequestParam(value = "size",defaultValue = "10") Integer size) {
         return ResponseEntity.ok(orderService.getByPagination(page, size));
     }
 
     @GetMapping("/get-by-filter")
     @Operation(summary = "Api for get", description = "this api used for get by filter with pagination")
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<PageImpl<OrderDTO>> getByPaginationWithFilter(@RequestBody OrderFilterDTO filterDTO,
-                                                                        @RequestParam("page") Integer page,
-                                                                        @RequestParam("size") Integer size) {
+                                                                        @RequestParam(value = "page",defaultValue = "1") Integer page,
+                                                                        @RequestParam(value = "size",defaultValue = "10") Integer size) {
         return ResponseEntity.ok(orderService.getByPaginationWithFilter(filterDTO,page, size));
     }
 
-    //9. order
-    //  / 1. create (product_list(product_id,amount), profile_id (from jwt),  delivered_address, delivered_contact). (status will be preparing)
-    //  / 2. cancel by id. status to cancel.  only for admin.
-    //  / 3. cancel order by id for client. Bunda orderId mujojat qilgan profile ga tegishli bo'lishi kerak. order ning statusi  preparing bo'lsa ruxsat berilsin.
-    //  / 4. delivered. status to deliverd. only for admin.
-    //  / 5. cancelled. status to cancelled. only for admin.
-    //  / 6. on_the_way. status to on_the_way. only for admin.
-    //  / 7. update (product_list(product_id...), profile_id (from jwt),  delivered_address, delivered_contact). If status is preparing.
-    //		other wise not allow.
-    //  / 8. Get by id. Bunda shu orderga kirgan barcha productlarni ham qo'shib return qiladi.
-    //  / 9. get all by order list for client. (Murojat qilgan client ning order listini retunr qiladi. Orderni productlarini emas.)
-    //		with pagination.
-    //    10. filter with pagination. filter items order_date, order status, profile-id, product-id. Only for admin.
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,24 +1,24 @@
 ### Create
 POST http://localhost:8080/product/api/create
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2MzEzMzgsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzE3NzM4LCJpc3MiOiJDaG9wYXJQcm8ifQ.SVkEql5_aqz6hXDjvS6rig5te2ZwBV8wbJVSTCSyW0LiVFZuHqUqmIR6t_4PVxAymEo1eLySm6LEsCmYgBAieg
 Accept-Language: UZ
 Content-Type: application/json
 
 {
-  "nameUz": "Salom3",
-  "nameRu": "nameRu3",
-  "nameEn": "nameEn3",
-  "descriptionUz": "descriptionUz3",
-  "descriptionRu": "descriptionRu3",
-  "descriptionEn": "descriptionEn3",
-  "orderNumber": 3,
-  "categoryId": 3,
-  "price": 20990,
-  "attachList": ["a79c752d-8c78-458b-9076-fa1419b603b9"]
+  "nameUz": "PEPPERONI",
+  "nameRu": "ПЕППЕРОНИ",
+  "nameEn": "PEPPERONI",
+  "descriptionUz": "Maxsus pomidor sousi, mozzarella pishloq, dudlangan kolbasa",
+  "descriptionRu": "Фирменный томатный соус, сыр Моцарелла, колбаса копченая",
+  "descriptionEn": "Special tomato sauce, Mozzarella, smoked sausage (Halal)",
+  "orderNumber": 8,
+  "categoryId": 2,
+  "price": 70000,
+  "attachList": ["cc08105f-0a50-4da1-b86c-7ab2bc0e85e0"]
 }
 
 ### Update
-PUT http://localhost:8080/product/api/update/9
+PUT http://localhost:8080/product/api/update/500
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
 Accept-Language: UZ
 Content-Type: application/json
@@ -56,12 +56,12 @@ GET http://localhost:8080/product/api/getTopTenSoldProducts
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
 Accept-Language: UZ
 
-### Get Top Ten Added Products
+### Get By Id For Client
 GET http://localhost:8080/product/api/getByIdForClient/8
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
 Accept-Language: UZ
 
-### Get Top Ten Added Products
+### Get By Id For Admin
 GET http://localhost:8080/product/api/getByIdForAdmin/8
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
 Accept-Language: UZ

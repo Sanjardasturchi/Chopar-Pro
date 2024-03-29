@@ -1,6 +1,6 @@
 ### Create
 POST localhost:8080/order/api/create
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEzODQzNzYsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNDcwNzc2LCJpc3MiOiJDaG9wYXJQcm8ifQ.cXzWSaPsdUYCBKVqHbZc0_cYafiwGeCQwE_xHY5VTWF0VCuTE7-zttqUYxv6nsCEMwVPthG-CDYsz5naJD3d5Q
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2OTc2OTEsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzg0MDkxLCJpc3MiOiJDaG9wYXJQcm8ifQ.MbfR8qPd3eMCty3vMOUF71SdhaYmIS3ab3_l7Gpwvj9jq8me11FUrU3TeHrUCf2k8G1h0GedoqHOjG33CPNT_A
 Content-Type: application/json
 Accept-Language: UZ
 
@@ -9,21 +9,51 @@ Accept-Language: UZ
   "deliveredContact": "+998996448835",
   "productList": [
     {
-      "id": 6,
+      "id": 10,
       "amount": 6
     },
     {
-      "id": 7,
+      "id": 11,
       "amount": 7
     },
     {
-      "id": 8,
+      "id": 12,
       "amount": 8
     }
   ]
 }
 
+### Cancel
+PUT http://localhost:8080/order/api/cancel/
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2OTc2OTEsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzg0MDkxLCJpc3MiOiJDaG9wYXJQcm8ifQ.MbfR8qPd3eMCty3vMOUF71SdhaYmIS3ab3_l7Gpwvj9jq8me11FUrU3TeHrUCf2k8G1h0GedoqHOjG33CPNT_A
+
+### Cancel By User
+PUT http://localhost:8080/order/api/cancelByUser/
+
+### Delivered
+PUT http://localhost:8080/order/api/delivered/
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2OTc2OTEsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzg0MDkxLCJpc3MiOiJDaG9wYXJQcm8ifQ.MbfR8qPd3eMCty3vMOUF71SdhaYmIS3ab3_l7Gpwvj9jq8me11FUrU3TeHrUCf2k8G1h0GedoqHOjG33CPNT_A
+
+### Cancelled
+PUT http://localhost:8080/order/api/cancelled/
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2OTc2OTEsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzg0MDkxLCJpc3MiOiJDaG9wYXJQcm8ifQ.MbfR8qPd3eMCty3vMOUF71SdhaYmIS3ab3_l7Gpwvj9jq8me11FUrU3TeHrUCf2k8G1h0GedoqHOjG33CPNT_A
+
+### On the way
+PUT http://localhost:8080/order/api/on-the-way/
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2OTc2OTEsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzg0MDkxLCJpc3MiOiJDaG9wYXJQcm8ifQ.MbfR8qPd3eMCty3vMOUF71SdhaYmIS3ab3_l7Gpwvj9jq8me11FUrU3TeHrUCf2k8G1h0GedoqHOjG33CPNT_A
 
 ### Get by id
 GET http://localhost:8080/order/api/get-by-id/12
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE1NjY0MjksImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNjUyODI5LCJpc3MiOiJDaG9wYXJQcm8ifQ.Qb070bq1MiKVpBADz5_MIlyJQWv27yN4n4vOsF-Mec8n8ZLbPQYWjTV856o7iBs-zNjplM5FCH8antKEAA_pcw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2OTc2OTEsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzg0MDkxLCJpc3MiOiJDaG9wYXJQcm8ifQ.MbfR8qPd3eMCty3vMOUF71SdhaYmIS3ab3_l7Gpwvj9jq8me11FUrU3TeHrUCf2k8G1h0GedoqHOjG33CPNT_A
+
+### Get by filter
+GET http://localhost:8080/order/api/get-by-filter?page=1&size=10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2OTc2OTEsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzg0MDkxLCJpc3MiOiJDaG9wYXJQcm8ifQ.MbfR8qPd3eMCty3vMOUF71SdhaYmIS3ab3_l7Gpwvj9jq8me11FUrU3TeHrUCf2k8G1h0GedoqHOjG33CPNT_A
+
+{
+  "productId": "10",
+  "profileId": "efb89ddf-209c-4d25-b2d4-03064d43fde3",
+  "status": "PREPARING",
+  "orderDate": "2024-03-29"
+}
