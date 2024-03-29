@@ -3,7 +3,7 @@ GET localhost:8080/email-history/api/get-history-by-email/sanjarbeksultanov2023@
 
 
 ### Get by email
-GET localhost:8080/email-history/api/get-history-by-given-date/2024-03-23
+GET localhost:8080/email-history/api/get-history-by-given-date/2024-03-25
 
 
 ### Get by email

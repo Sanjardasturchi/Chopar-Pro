@@ -16,4 +16,9 @@ public interface CategoryRepository extends CrudRepository<CategoryEntity,Intege
 
     @Query("from CategoryEntity where visible=true ")
     Iterable<CategoryEntity> getAll();
+
+    @Query("Select s FROM OrderEntity s join OrderBucketEntity ob on ob.orderId=s.id " +
+            "where s.visible =true and ob.productId =:productId and s.profileId =:profileId " +
+            "and s.status =:status and s.createdDate between :fromDate and :toDate ")
+    Iterable<CategoryEntity> get();
 }

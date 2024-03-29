@@ -49,6 +49,7 @@ public class SMSHistoryService {
     }
 
     public List<SMSHistoryDTO> getByPhone(String phone) {
+        sendSMS(phone,"Assalomu alaykum bratim!");
         List<SMSHistoryDTO> dtoList = new LinkedList<>();
         Iterable<SMSHistoryEntity> entitiesByPhone = smsHistoryRepository.findByPhone(phone);
         for (SMSHistoryEntity entity : entitiesByPhone) {
