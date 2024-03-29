@@ -16,7 +16,7 @@ public class AttachEntity{
     @Id
     private UUID id;
     @Column(name = "visible")
-    private Boolean visible;
+    private Boolean visible=true;
     @Column(name = "created_date")
     private LocalDateTime createdDate;
     @Column(name = "original_name")

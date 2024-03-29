@@ -77,7 +77,7 @@ public class AttachWebController {
     }
 
     /**
-     * This method is used by the admin to delete the attach by id
+     * This method is used by the admin to delete the attachment by id
      */
     @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('ADMIN')")

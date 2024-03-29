@@ -21,11 +21,6 @@ public class JWTDTO {
         this.id = id;
     }
 
-//    public JWTDTO(Integer id, ProfileRole role) {
-//        this.id = id;
-//        this.role = role;
-//    }
-
     public JWTDTO(String id, String email, ProfileRole role) {
         this.id = id;
         this.email = email;

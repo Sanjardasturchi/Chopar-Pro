@@ -177,7 +177,7 @@ public class AttachService {
 
             AttachEntity entity = get(id, language);
 
-            Path file = Paths.get("uploads/" + entity.getPath() + "/" + attachId);
+            Path file = Paths.get("src/main/resources/static/uploads/" + entity.getPath() + "/" + attachId);
 
             Resource resource = new UrlResource(file.toUri());
 
@@ -198,7 +198,7 @@ public class AttachService {
      * This method used attach for pagination
      */
     public PageImpl<AttachDTO> getAttachPagination(Integer page, Integer size) {
-        Sort sort = Sort.by(Sort.Direction.DESC, "createdData");
+        Sort sort = Sort.by(Sort.Direction.DESC, "createdDate");
 
         Pageable paging = PageRequest.of(page - 1, size, sort);
 
@@ -220,7 +220,7 @@ public class AttachService {
     public AttachDTO toDTOPagination(AttachEntity entity) {
         AttachDTO dto = new AttachDTO();
         dto.setId(entity.getId());
-        dto.setUrl(serverUrl + "/attach/open/" + entity.getId() + "." + entity.getExtension());
+        dto.setUrl(serverUrl + "/attach/api/open/" + entity.getId() + "." + entity.getExtension());
         dto.setSize(entity.getSize());
         dto.setOriginalName(entity.getOriginalName());
         return dto;

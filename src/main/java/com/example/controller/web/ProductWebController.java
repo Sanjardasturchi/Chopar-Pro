@@ -76,7 +76,7 @@ public class ProductWebController {
 
     @GetMapping("/getByIdForClient/{id}")
     @Operation(summary = "Api for get", description = "this api used for get by for client")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<ProductDTO> getByIdForClient(@PathVariable("id")Integer id,
             @RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
         return ResponseEntity.ok(productService.getByIdForClient(id,language));
@@ -84,7 +84,7 @@ public class ProductWebController {
 
     @GetMapping("/getByIdForAdmin/{id}")
     @Operation(summary = "Api for get", description = "this api used for get by for admin")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<ProductDTO> getByIdForAdmin(@PathVariable("id")Integer id,
                                                        @RequestHeader(value = "Accept-Language", defaultValue = "UZ") Language language) {
         return ResponseEntity.ok(productService.getByIdForAdmin(id,language));

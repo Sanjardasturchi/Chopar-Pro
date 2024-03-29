@@ -3,10 +3,20 @@ POST http://localhost:8080/attach/api/upload
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary
-Content-Disposition: form-data; name="file"; filename="img.png"
+Content-Disposition: form-data; name="file"; filename="double-peperoni.png"
 
-< C:\Projects\Chopar_Pro\images\img.png
+< C:\Projects\Chopar_Pro\images\double-peperoni.png
 
 ### Get by id
 GET http://localhost:8080/attach/api/open/1ff67740-b230-4736-b0dd-12fcbb11715c
 Accept-Language: UZ
+
+### Download
+GET http://localhost:8080/attach/api/download/a79c752d-8c78-458b-9076-fa1419b603b9.png
+
+### Pagination
+GET http://localhost:8080/attach/api/attachPagination
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTE2MzEzMzgsImVtYWlsIjoic2FuamFyYmVrc3VsdGFub3YyMDIzQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiZXhwIjoxNzExNzE3NzM4LCJpc3MiOiJDaG9wYXJQcm8ifQ.SVkEql5_aqz6hXDjvS6rig5te2ZwBV8wbJVSTCSyW0LiVFZuHqUqmIR6t_4PVxAymEo1eLySm6LEsCmYgBAieg
+
+### Delete
+DELETE http://localhost:8080/attach/api/delete/1ff67740-b230-4736-b0dd-12fcbb11715d
