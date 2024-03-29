@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,7 @@ public class AuthController {
 
     @PostMapping("/login")
     @Operation(summary = "Api for login", description = "this api used for authorization")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     public String login(Model model, @Valid @ModelAttribute AuthDTO auth) {
         log.info("Login {} ", auth.getEmail());
         String result = authService.check(auth, Language.UZ);
